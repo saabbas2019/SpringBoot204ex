@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!--Get car information-->
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/carform}" th:object="${car}" method="post">
+    Id :<input type="number" th:field="*{id}" />
+    <span th:if="${#fields.hasErrors('id')}"
+          th:errors="*{id}"></span><br />
+
+    Maker :<input type="text" th:field="*{carmake}" />
+    <span th:if="${#fields.hasErrors('carmake')}"
+          th:errors="*{carmake}"></span><br />
+
+    Model :<input type="text" th:field="*{carmodel}" />
+    <span th:if="${#fields.hasErrors('carmodel')}"
+          th:errors="*{carmodel}"></span><br />
+
+    Year :<input type="number" th:field="*{caryear}" />
+    <span th:if="${#fields.hasErrors('caryear')}"
+          th:errors="*{caryear}"></span><br />
+
+    Description :<textarea rows="3" th:field="*{description}" />
+    <span th:if="${#fields.hasErrors('description')}"
+          th:errors="*{description}"></span>
+    <br />
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
